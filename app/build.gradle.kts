@@ -65,5 +65,8 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.2.2")
     //fuentes de google
     implementation("androidx.compose.ui:ui-text-google-fonts:1.7.8")
+    //iconos exctendidos
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
 
 }
