@@ -1,0 +1,21 @@
+package dev.alexisvillarruel.imageapp.service
+
+import okhttp3.OkHttpClient
+import retrofit2.converter.gson.GsonConverterFactory
+
+object RetrofitInstance {
+
+    private val baseURL = ""
+    private val client = OkHttpClient.Builder().build()
+    private val retrofit by lazy {
+        retrofit2.Retrofit.Builder()
+            .baseUrl(baseURL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+    }
+    val api: ImageappApiService by lazy {
+        retrofit.create(ImageappApiService::class.java)
+    }
+
+}

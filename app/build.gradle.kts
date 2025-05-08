@@ -63,4 +63,7 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata:1.7.8")
     //glide compose
     implementation("io.coil-kt:coil-compose:2.2.2")
+    //fuentes de google
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.7.8")
+
 }
