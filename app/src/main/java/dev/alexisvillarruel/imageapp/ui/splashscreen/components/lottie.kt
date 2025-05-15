@@ -21,9 +21,9 @@ import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
 fun lottiecamera(modifier: Modifier = Modifier) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.cameralogo))
     val progress by animateLottieCompositionAsState(composition,
-        iterations = LottieConstants.IterateForever,
+        iterations = 1,
         isPlaying = true,
-        speed = 1f,
+        speed = 1.5f,
         restartOnPlay = false
     )
 
@@ -37,9 +37,9 @@ fun lottiecamera(modifier: Modifier = Modifier) {
 fun lottieflechas(modifier: Modifier = Modifier){
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.flechasanim))
     val progress by animateLottieCompositionAsState(composition,
-        iterations = LottieConstants.IterateForever,
+        iterations = 3,
         isPlaying = true,
-        speed = 1f,
+        speed = 2f,
         restartOnPlay = false
     )
 

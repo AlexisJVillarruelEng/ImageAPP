@@ -1,7 +1,9 @@
 package dev.alexisvillarruel.imageapp.ui.splashscreen
-
+import androidx.compose.animation.AnimatedVisibility
 import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +12,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,9 +24,12 @@ import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottiecamera
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottieflechas
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.textosplash
 import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
+import kotlinx.coroutines.delay
 
 @Composable
 fun splashScreen() {
+
+    var visible by remember { mutableStateOf(false) }
     // Your splash screen UI code here
 
     Surface(
@@ -33,7 +43,18 @@ fun splashScreen() {
                 verticalArrangement = Arrangement.Center
             ) {
                 lottiecamera(modifier = Modifier.weight(1f))
-                textosplash(modifier = Modifier.weight(.1f))
+                LaunchedEffect(Unit) {
+                    visible = true
+                    delay(1000)
+                    visible = false
+                }
+                AnimatedVisibility(
+                    visible = visible,
+                    enter= fadeIn(),
+                    exit = fadeOut(),
+                ) {
+                    textosplash(modifier = Modifier.weight(.1f))
+                }
                 lottieflechas(modifier = Modifier.weight(1f))
             }
         }
