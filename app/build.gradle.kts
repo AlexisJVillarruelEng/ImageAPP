@@ -67,6 +67,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-text-google-fonts:1.7.8")
     //iconos exctendidos
     implementation("androidx.compose.material:material-icons-extended:1.7.8")
+    //lottie
+    implementation("com.airbnb.android:lottie-compose:6.0.0")
 
 
 }
