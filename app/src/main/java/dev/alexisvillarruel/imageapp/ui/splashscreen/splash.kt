@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottieanimationforscreen
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottiecamera
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottieflechas
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.textosplash
@@ -42,10 +43,10 @@ fun splashScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                lottiecamera(modifier = Modifier.weight(1f))
+                lottieanimationforscreen()
                 LaunchedEffect(Unit) {
                     visible = true
-                    delay(1000)
+                    delay(2000)
                     visible = false
                 }
                 AnimatedVisibility(
@@ -55,7 +56,7 @@ fun splashScreen() {
                 ) {
                     textosplash(modifier = Modifier.weight(.1f))
                 }
-                lottieflechas(modifier = Modifier.weight(1f))
+
             }
         }
     }
