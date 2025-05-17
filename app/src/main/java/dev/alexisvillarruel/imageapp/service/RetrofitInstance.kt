@@ -7,7 +7,7 @@ object RetrofitInstance {
 
     private val baseURL = "https://api.unsplash.com/"
     private val APIKEY="Z8TttGF5-S2zB0D85_yNMCAl8n666BRTtNlN2qbHnjw"
-    private val client = OkHttpClient.Builder().build()
+    private val client = OkHttpClient.Builder().addInterceptor(AuthInterceptor(APIKEY)).build()
     private val retrofit by lazy {
         retrofit2.Retrofit.Builder()
             .baseUrl(baseURL)
