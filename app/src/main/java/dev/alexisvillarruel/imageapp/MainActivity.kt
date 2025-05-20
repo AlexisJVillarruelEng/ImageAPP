@@ -22,7 +22,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 // A surface container using the 'background' color from the theme
-                Appnavigation(navController = rememberNavController())
+                val navcontroller = rememberNavController()
+                Appnavigation(navController = navcontroller)
             }
 
         }

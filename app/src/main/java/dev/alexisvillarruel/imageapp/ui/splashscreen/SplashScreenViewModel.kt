@@ -14,7 +14,7 @@ import okhttp3.Dispatcher
 class SplashScreenViewModel : ViewModel() {
     private val repository = ImageappRepository()
 
-    private val _url = MutableLiveData<String>()
+    private val _url = MutableLiveData<String>("")
     val url: MutableLiveData<String> get() = _url
 
     init {
