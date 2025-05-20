@@ -9,13 +9,13 @@ import retrofit2.Response
 class ImageappRepository {
     private val imageappApiService: ImageappApiService = RetrofitInstance.api
 
-    suspend fun getRandomPhotos(query: String, orientation: String): UnsplashPhoto?{
+    suspend fun getRandomPhotos(query: String, orientation: String): Urlsplashphoto?{
         return try {
             val response = imageappApiService.getRandomPhoto(query, orientation)
             if (response.isSuccessful) {
                 val body = response.body()?:throw Exception("Response body is null")
                 if (body != null) {
-                    return body
+                    return body.urls
                 } else {
                     throw Exception("Response body is null")
                 }

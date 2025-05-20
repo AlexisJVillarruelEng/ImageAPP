@@ -1,6 +1,7 @@
 package dev.alexisvillarruel.imageapp.ui.splashscreen.components
 
 
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,19 +33,22 @@ enum class LottieAnimationType(valor: Int) {
 fun lottieanimationforscreen() {
     var composables: LottieAnimationType by remember { mutableStateOf(LottieAnimationType.CAMERALOGO) }
 
-    Box(modifier = Modifier
-        .fillMaxWidth()
-        .clickable() {
-            when (composables) {
-                LottieAnimationType.CAMERALOGO -> composables = LottieAnimationType.FLECHAS
-                LottieAnimationType.FLECHAS -> composables = LottieAnimationType.CAMERALOGO
+    Crossfade(targetState = composables) {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .clickable() {
+                when (it) {
+                    LottieAnimationType.CAMERALOGO -> composables = LottieAnimationType.FLECHAS
+                    LottieAnimationType.FLECHAS -> composables = LottieAnimationType.CAMERALOGO
+                }
+            }, contentAlignment = Alignment.Center) {
+            when (it) {
+                LottieAnimationType.CAMERALOGO -> lottiecamera()
+                LottieAnimationType.FLECHAS -> lottieflechas()
             }
-        }, contentAlignment = Alignment.Center) {
-        when (composables) {
-            LottieAnimationType.CAMERALOGO -> lottiecamera()
-            LottieAnimationType.FLECHAS -> lottieflechas()
         }
     }
+
 
 }
 

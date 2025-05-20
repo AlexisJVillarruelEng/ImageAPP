@@ -1,4 +1,5 @@
 package dev.alexisvillarruel.imageapp.ui.splashscreen
+
 import androidx.compose.animation.AnimatedVisibility
 import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
@@ -14,12 +15,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import coil.compose.AsyncImage
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottieanimationforscreen
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottiecamera
 import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottieflechas
@@ -28,8 +34,8 @@ import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
 import kotlinx.coroutines.delay
 
 @Composable
-fun splashScreen() {
-
+fun splashScreen(splashvm: SplashScreenViewModel = viewModel(), navController: NavController) {
+    val url : String by splashvm.url.observeAsState(initial = "")
     var visible by remember { mutableStateOf(false) }
     // Your splash screen UI code here
 
@@ -39,7 +45,15 @@ fun splashScreen() {
         contentColor = MaterialTheme.colorScheme.onBackground
     ) {
         Box(Modifier.fillMaxSize()) {
-            Column(modifier = Modifier.fillMaxSize(),
+            AsyncImage(
+                model = url,
+                contentDescription = "Imagen aleatoria",
+                modifier = Modifier.fillMaxSize(),
+                alpha = 0.5f,
+                contentScale = ContentScale.Crop
+            )
+            Column(
+                modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -51,7 +65,7 @@ fun splashScreen() {
                 }
                 AnimatedVisibility(
                     visible = visible,
-                    enter= fadeIn(),
+                    enter = fadeIn(),
                     exit = fadeOut(),
                 ) {
                     textosplash(modifier = Modifier.weight(.1f))
@@ -61,21 +75,21 @@ fun splashScreen() {
         }
     }
 }
+//
+//@Preview(showSystemUi = true)
+//@Composable
+//fun PreviewSplashScreen() {
+//    AppTheme {
+//        // Preview the splash screen
+//        splashScreen()
+//    }
+//}
 
-@Preview(showSystemUi = true)
-@Composable
-fun PreviewSplashScreen() {
-    AppTheme {
-        // Preview the splash screen
-        splashScreen()
-    }
-}
-
-@Preview(name = "Modo oscuro", showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
-@Composable
-fun PreviewSplashScreen2() {
-    AppTheme {
-        // Preview the splash screen
-        splashScreen()
-    }
-}
+//@Preview(name = "Modo oscuro", showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+//@Composable
+//fun PreviewSplashScreen2() {
+//    AppTheme {
+//        // Preview the splash screen
+//        splashScreen()
+//    }
+//}
