@@ -12,10 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import dev.alexisvillarruel.imageapp.navigation.Appnavigation
 import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
+//primer paso inyeccion de dependencias
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    //
+    //  private val xxxViewModel: XXXViewModel by viewModels() solo se pasa xxxViewModel en el composable
+    //  compartir entre pantallas como por pasos
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

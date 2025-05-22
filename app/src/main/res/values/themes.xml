@@ -3,13 +3,13 @@
     <!-- Tema launch transparente para evitar splash system -->
     <style name="Theme.ImageAPP.Launch" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Fondo completamente transparente -->
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/black</item>
 
     </style>
 
     <!-- Tema principal de la app -->
     <style name="Theme.ImageAPP" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Aquí pon tu background habitual para Compose -->
-        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/black</item>
     </style>
 </resources>
