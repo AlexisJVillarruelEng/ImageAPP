@@ -1,17 +1,18 @@
 package dev.alexisvillarruel.imageapp.navigation
 
-import android.window.SplashScreen
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import dev.alexisvillarruel.imageapp.ui.splashscreen.splashScreen
+import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.SplashScreenViewModel
+import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.splashScreen
+import kotlin.getValue
 
 @Composable
 fun Appnavigation(navController: NavHostController) {
@@ -21,9 +22,8 @@ fun Appnavigation(navController: NavHostController) {
         Modifier.padding(PaddingValues(0.dp))
     ) {
         composable(Routes.SplashScreen.route) {
-            splashScreen(
-                navController = navController
-            )
+            val splashViewModel: SplashScreenViewModel = hiltViewModel() // Use hiltViewModel() para obtener la instancia de ViewModel
+            splashScreen( splashViewModel, navController = navController )
         }
     }
 }

@@ -1,8 +1,6 @@
-package dev.alexisvillarruel.imageapp.ui.splashscreen
+package dev.alexisvillarruel.imageapp.ui.splashscreen.ui
 
 import androidx.compose.animation.AnimatedVisibility
-import android.content.res.Configuration
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
@@ -12,10 +10,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -25,20 +21,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottieanimationforscreen
-import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottiecamera
-import dev.alexisvillarruel.imageapp.ui.splashscreen.components.lottieflechas
-import dev.alexisvillarruel.imageapp.ui.splashscreen.components.textosplash
-import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
+import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.components.lottieanimationforscreen
+import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.components.textosplash
 import kotlinx.coroutines.delay
 
 @Composable
-fun splashScreen(splashvm: SplashScreenViewModel = hiltViewModel(), navController: NavController) {
+fun splashScreen(splashvm: SplashScreenViewModel , navController: NavController) {
     val url: String by splashvm.url.observeAsState(initial = "")
     var ischargue by remember { mutableStateOf(false) }
     var visible by remember { mutableStateOf(false) }

@@ -1,4 +1,4 @@
-package dev.alexisvillarruel.imageapp.ui.splashscreen.components
+package dev.alexisvillarruel.imageapp.ui.splashscreen.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
