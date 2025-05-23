@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "728366246184",
+    "project_id": "imgapp-3371d",
+    "storage_bucket": "imgapp-3371d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728366246184:android:86ecde391c790d186b081d",
+        "android_client_info": {
+          "package_name": "dev.alexisvillarruel.imageapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDytK8zODmgTSt0IXUaInq-b0bsl9pCnBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
