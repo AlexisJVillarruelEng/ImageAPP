@@ -1,4 +1,4 @@
-package dev.alexisvillarruel.imageapp.service.APInet
+package dev.alexisvillarruel.imageapp.service.firebase
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -12,15 +12,4 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class FirebaseInstance {
 
-    @Provides
-    @Singleton
-    fun provideFirebaseAuth(): FirebaseAuth {
-        return FirebaseAuth.getInstance()
-    }
-
-    @Provides
-    @Singleton
-    fun provideFirestore(): FirebaseFirestore{
-        return FirebaseFirestore.getInstance()
-    }
 }
