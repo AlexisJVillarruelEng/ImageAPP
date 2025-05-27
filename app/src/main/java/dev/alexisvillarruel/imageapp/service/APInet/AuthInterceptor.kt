@@ -1,4 +1,4 @@
-package dev.alexisvillarruel.imageapp.service
+package dev.alexisvillarruel.imageapp.service.APInet
 
 import okhttp3.Interceptor
 import okhttp3.Response

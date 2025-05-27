@@ -1,6 +1,6 @@
 package dev.alexisvillarruel.imageapp.ui.splashscreen.data.network
 
-import dev.alexisvillarruel.imageapp.service.RetrofitInstance
+import dev.alexisvillarruel.imageapp.service.firebase.RetrofitInstance
 import jakarta.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

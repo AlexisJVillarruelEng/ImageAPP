@@ -1,11 +1,11 @@
-package dev.alexisvillarruel.imageapp.service
+package dev.alexisvillarruel.imageapp.service.firebase
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dev.alexisvillarruel.imageapp.service.APInet.AuthInterceptor
 import dev.alexisvillarruel.imageapp.ui.splashscreen.data.network.SplashClient
-
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,7 +18,7 @@ class RetrofitInstance {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit{
+    fun provideRetrofit(): Retrofit {
          val baseURL = "https://api.unsplash.com/"
          val APIKEY="Z8TttGF5-S2zB0D85_yNMCAl8n666BRTtNlN2qbHnjw"
          val client = OkHttpClient.Builder().addInterceptor(AuthInterceptor(APIKEY)).build() // con authinterceptor
