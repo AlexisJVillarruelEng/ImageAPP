@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.alexisvillarruel.imageapp.ui.splashscreen.data.network.SplashClient
+
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,7 +14,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class RetrofitInstance {
-    //no inicializar nada aqui
+
+
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit{
