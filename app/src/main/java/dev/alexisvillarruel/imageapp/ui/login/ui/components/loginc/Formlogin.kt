@@ -14,6 +14,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,20 +43,39 @@ fun contentformlogin(correo: String, contraseña: String, oncorrreochangue: (Str
     var isvisible by rememberSaveable { mutableStateOf(false) }
 
     Column(modifier = Modifier.padding(16.dp)) {
-        Text("correo")
+        Text("correo",color = MaterialTheme.colorScheme.onPrimary)
         OutlinedTextField(
             value = correo,
             onValueChange = oncorrreochangue,
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                focusedTextColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedTextColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                focusedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedLabelColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+
+                ),
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { isvisible = !isvisible } // ejemplo de uso de rememberSaveable
         )
 
 
-        Text("Contraseña")
+        Text("Contraseña",color = MaterialTheme.colorScheme.onPrimary)
+
         OutlinedTextField(
             value = contraseña,
             onValueChange = onpasswordchangue,
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                focusedTextColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedTextColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                focusedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedLabelColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+
+            ),
             modifier = Modifier
                 .fillMaxWidth(),
             visualTransformation = if (isvisible) VisualTransformation.None else PasswordVisualTransformation(),
@@ -64,11 +86,12 @@ fun contentformlogin(correo: String, contraseña: String, oncorrreochangue: (Str
                 Icon(
                     imageVector = icon,
                     contentDescription = "Toggle password visibility",
-                    modifier = Modifier.clickable { isvisible = !isvisible }
+                    modifier = Modifier.clickable { isvisible = !isvisible },
+                    tint = MaterialTheme.colorScheme.onPrimary
                 )
             }
         )
-        Text(text = "Regsitrate aqui",color = MaterialTheme.colorScheme.primary,
+        Text(text = "Regsitrate aqui",color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
                 .padding(top = 16.dp)
                 .clickable { /* Acción al hacer clic */ } // lleva a register screen

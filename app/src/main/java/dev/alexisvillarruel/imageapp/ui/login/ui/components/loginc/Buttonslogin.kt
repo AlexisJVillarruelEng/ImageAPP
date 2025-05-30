@@ -14,6 +14,7 @@ import androidx.compose.material3.MaterialTheme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,25 +39,25 @@ fun contentbtnlogin() {
 
         AsyncImage(
             modifier = Modifier
-                .size(70.dp)
+                .size(70.dp).background(Color.DarkGray)
                 .padding(8.dp)
                 .clickable { /* Acción al hacer clic */ },
             model = "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-            contentDescription = "Logo Instagram"
+            contentDescription = "Logo apple"
         )
 
         AsyncImage(
             modifier = Modifier
-                .size(70.dp)
+                .size(70.dp).background(Color.DarkGray)
                 .padding(8.dp)
                 .clickable { /* Acción al hacer clic */ },
             model = "https://www.insights.la/wp-content/uploads/2015/04/Microsoft-logo-m-box-880x660.png",
-            contentDescription = "Logo Instagram",
+            contentDescription = "Logo Microsoft",
         )
         AsyncImage(
             modifier = Modifier
                 .size(70.dp)
-                .padding(8.dp)
+                .padding(8.dp).background(Color.DarkGray)
                 .clickable { /* Acción al hacer clic */ },
             model = "https://static.dezeen.com/uploads/2025/05/sq-google-g-logo-update_dezeen_2364_col_0.jpg",
             contentDescription = "Logo Instagram",
