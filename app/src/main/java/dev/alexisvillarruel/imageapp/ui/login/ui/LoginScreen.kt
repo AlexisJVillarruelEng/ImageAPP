@@ -38,7 +38,7 @@ fun LoginScreen() {
         var textocontraseña by rememberSaveable { mutableStateOf("") }
 
         Box(contentAlignment = Alignment.Center) {
-            background()
+            background(Modifier.fillMaxSize(), Alignment.Center)
             Column {
                 Text(
                     text = "Login", style = MaterialTheme.typography.displayLarge,
@@ -52,13 +52,13 @@ fun LoginScreen() {
                     onpasswordchangue = { textocontraseña = it })
                 btnlogin()
             }
-            background2()
+            background2(Modifier.fillMaxSize())
         }
     }
 }
 
 @Composable
-fun background() {
+fun background(Modifier: Modifier,position: Alignment) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.animacionverde))
     val progress by animateLottieCompositionAsState(
         composition = composition,
@@ -71,11 +71,12 @@ fun background() {
     LottieAnimation(
         composition = composition,
         progress = { progress },
-        modifier = Modifier.fillMaxSize().size(800.dp, 800.dp),
+        modifier = Modifier,
+        alignment = position
     )
 }
 @Composable
-fun background2() {
+fun background2(Modifier: Modifier) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.animacionondas))
     val progress by animateLottieCompositionAsState(
         composition = composition,
@@ -87,7 +88,7 @@ fun background2() {
     LottieAnimation(
         composition = composition,
         progress = { progress },
-        modifier = Modifier.fillMaxSize().size(800.dp, 800.dp),
+        modifier = Modifier,
         alignment = Alignment.BottomEnd
     )
 }
@@ -106,6 +107,6 @@ fun previewlog() {
 @Composable
 fun previewb() {
     dev.alexisvillarruel.imageapp.ui.theme.AppTheme {
-        background2()
+        background2(Modifier.fillMaxSize())
     }
 }

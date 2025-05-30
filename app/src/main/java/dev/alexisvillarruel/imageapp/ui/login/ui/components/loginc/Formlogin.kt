@@ -54,6 +54,8 @@ fun contentformlogin(correo: String, contraseña: String, oncorrreochangue: (Str
                 unfocusedTextColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
                 focusedLabelColor = MaterialTheme.colorScheme.onPrimary,
                 unfocusedLabelColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                focusedIndicatorColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.onPrimary
 
                 ),
             modifier = Modifier
@@ -74,6 +76,8 @@ fun contentformlogin(correo: String, contraseña: String, oncorrreochangue: (Str
                 unfocusedTextColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
                 focusedLabelColor = MaterialTheme.colorScheme.onPrimary,
                 unfocusedLabelColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                focusedIndicatorColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.onPrimary
 
             ),
             modifier = Modifier

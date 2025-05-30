@@ -56,8 +56,8 @@ fun contentbtnlogin() {
         )
         AsyncImage(
             modifier = Modifier
-                .size(70.dp)
-                .padding(8.dp).background(Color.DarkGray)
+                .size(70.dp).background(Color.DarkGray)
+                .padding(8.dp)
                 .clickable { /* Acción al hacer clic */ },
             model = "https://static.dezeen.com/uploads/2025/05/sq-google-g-logo-update_dezeen_2364_col_0.jpg",
             contentDescription = "Logo Instagram",
