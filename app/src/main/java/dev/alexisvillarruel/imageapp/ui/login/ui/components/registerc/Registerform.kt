@@ -28,7 +28,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.hilt.navigation.compose.hiltViewModel
 import dev.alexisvillarruel.imageapp.R
+import dev.alexisvillarruel.imageapp.ui.login.ui.LoginViewModel
 import dev.alexisvillarruel.imageapp.ui.login.ui.background
 import dev.alexisvillarruel.imageapp.ui.login.ui.background2
 import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
@@ -40,8 +42,9 @@ fun registerform(
     contraseña: String,
     onNombreChange: (String) -> Unit,
     onCorreoChange: (String) -> Unit,
-    onContraseñaChange: (String) -> Unit
+    onContraseñaChange: (String) -> Unit,
 ) {
+    val loginViewModel: LoginViewModel = hiltViewModel()
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Black) {
         Box(modifier=Modifier.padding(top = 40.dp)) {
             background(Modifier.fillMaxSize().alpha(0.4f).blur(10.dp).scale(1.5f).zIndex(0f).padding(vertical = 210.dp),Alignment.TopStart)
@@ -126,7 +129,11 @@ fun registerform(
                     modifier = Modifier
                         .padding(16.dp).fillMaxWidth()
                         .size(50.dp)
-                        .clickable { /* Handle click */ },
+                        .clickable {
+
+                                loginViewModel.registerWithEmail(correo,contraseña, nombre)
+
+                        },
                     alignment = Alignment.Center
                 )
             }

@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -90,4 +92,6 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.14.0"))
     //Datastore
     implementation("androidx.datastore:datastore-preferences:1.1.7")
+    // Google Sign-In
+    implementation ("com.google.android.gms:play-services-auth:21.3.0")
 }
