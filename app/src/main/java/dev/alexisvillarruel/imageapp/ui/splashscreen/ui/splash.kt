@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -30,7 +31,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun splashScreen(splashvm: SplashScreenViewModel , navController: NavController) {
-    val url: String by splashvm.url.observeAsState(initial = "")
+    val url: String by splashvm.url.collectAsState(initial = "")
     var ischargue by remember { mutableStateOf(false) }
     var visible by remember { mutableStateOf(false) }
     // Your splash screen UI code here

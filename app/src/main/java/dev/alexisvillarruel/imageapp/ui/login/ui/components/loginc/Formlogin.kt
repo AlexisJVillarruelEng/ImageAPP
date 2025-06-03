@@ -1,5 +1,6 @@
 package dev.alexisvillarruel.imageapp.ui.login.ui.components.loginc
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -95,6 +99,18 @@ fun contentformlogin(correo: String, contraseña: String, oncorrreochangue: (Str
                 )
             }
         )
+        Button(
+            onClick = { /* Acción al hacer clic en el botón */ },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
+        ) {
+            Text(text = "Iniciar sesión", color = MaterialTheme.colorScheme.onPrimary)
+        }
         Text(text = "Regsitrate aqui",color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
                 .padding(top = 16.dp)

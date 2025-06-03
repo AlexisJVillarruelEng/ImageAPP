@@ -9,6 +9,8 @@ import dev.alexisvillarruel.imageapp.ui.splashscreen.data.ImageappRepository
 import dev.alexisvillarruel.imageapp.ui.splashscreen.domain.SplashUseCase
 import jakarta.inject.Inject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -16,8 +18,8 @@ import kotlinx.coroutines.withContext
 class SplashScreenViewModel @Inject constructor(  private val splashUseCase: SplashUseCase) : ViewModel() {
 
 
-    private val _url = MutableLiveData<String>("")
-    val url: MutableLiveData<String> get() = _url
+    private val _url = MutableStateFlow("")
+    val url: StateFlow<String> get() = _url
 
     init {
         fetchRandomPhoto()
