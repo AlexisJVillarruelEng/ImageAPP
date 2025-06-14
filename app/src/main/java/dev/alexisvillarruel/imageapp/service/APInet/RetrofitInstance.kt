@@ -1,10 +1,9 @@
-package dev.alexisvillarruel.imageapp.service.firebase
+package dev.alexisvillarruel.imageapp.service.APInet
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.alexisvillarruel.imageapp.service.APInet.AuthInterceptor
 import dev.alexisvillarruel.imageapp.ui.splashscreen.data.network.SplashClient
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

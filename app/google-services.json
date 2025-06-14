@@ -12,7 +12,20 @@
           "package_name": "dev.alexisvillarruel.imageapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "728366246184-ffim41np9j4c22vr3c0htbjna4grpt1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.alexisvillarruel.imageapp",
+            "certificate_hash": "6fa9d80cf38b423edcdefb375023b9782c7f53d8"
+          }
+        },
+        {
+          "client_id": "728366246184-uh0m3683abgrb8na3ms929kg2jaba2ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDytK8zODmgTSt0IXUaInq-b0bsl9pCnBY"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728366246184-uh0m3683abgrb8na3ms929kg2jaba2ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
