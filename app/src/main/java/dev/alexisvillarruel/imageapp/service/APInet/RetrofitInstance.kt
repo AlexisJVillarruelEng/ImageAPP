@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dev.alexisvillarruel.imageapp.ui.principalscreen.data.network.dashboardClient
 import dev.alexisvillarruel.imageapp.ui.splashscreen.data.network.SplashClient
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -34,4 +35,9 @@ class RetrofitInstance {
         return retrofit.create(SplashClient::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun provideDashboardClient(retrofit: Retrofit): dashboardClient{
+        return retrofit.create(dashboardClient::class.java)
+    }
 }

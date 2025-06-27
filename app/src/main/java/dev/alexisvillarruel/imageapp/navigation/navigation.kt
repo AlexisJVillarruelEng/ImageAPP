@@ -10,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import dev.alexisvillarruel.imageapp.ui.principalscreen.ui.HomeScreen
+import dev.alexisvillarruel.imageapp.ui.principalscreen.ui.homeScreenViewModel
 import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.SplashScreenViewModel
 import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.splashScreen
 
@@ -18,7 +19,6 @@ fun Appnavigation(navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = Routes.SplashScreen.route,
-        Modifier.padding(PaddingValues(0.dp))
     ) {
         composable(Routes.SplashScreen.route) {
             val splashViewModel: SplashScreenViewModel = hiltViewModel() // Use hiltViewModel() para obtener la instancia de ViewModel
@@ -26,7 +26,8 @@ fun Appnavigation(navController: NavHostController) {
         }
         composable(Routes.HomeScreen.route) {
             // Aquí puedes agregar la pantalla de inicio
-            HomeScreen(navController = navController)
+            val homeScreenViewModel: homeScreenViewModel = hiltViewModel() // Use hiltViewModel() para obtener la instancia de ViewModel
+            HomeScreen(homeScreenViewModel,navController = navController)
         }
     }
 }

@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -29,7 +30,7 @@ enum class LottieAnimationType(valor: Int) {
 }
 
 @Composable
-fun lottieanimationforscreen() {
+fun lottieanimationforscreen(navController: NavController) {
     var composables: LottieAnimationType by remember { mutableStateOf(LottieAnimationType.CAMERALOGO) }
 
     Crossfade(targetState = composables) {
@@ -93,11 +94,3 @@ fun lottieflechas() {
 }
 
 
-@Preview(showSystemUi = true)
-@Composable
-fun Previewlottiecamera() {
-    AppTheme {
-        // Preview the splash screen
-        lottieanimationforscreen()
-    }
-}

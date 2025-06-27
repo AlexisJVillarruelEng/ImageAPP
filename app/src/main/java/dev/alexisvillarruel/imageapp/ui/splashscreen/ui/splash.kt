@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -22,9 +22,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import dev.alexisvillarruel.imageapp.navigation.Routes
 import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.components.lottieanimationforscreen
 import dev.alexisvillarruel.imageapp.ui.splashscreen.ui.components.textosplash
 import kotlinx.coroutines.delay
@@ -45,7 +45,12 @@ fun splashScreen(splashvm: SplashScreenViewModel , navController: NavController)
             AsyncImage(
                 model = url,
                 contentDescription = "Imagen aleatoria",
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxSize().clickable{
+                    navController.navigate(Routes.HomeScreen.route) {
+                        // Clear the back stack to prevent returning to the splash screen
+                        popUpTo("splash") { inclusive = true }
+                    }
+                },
                 contentScale = ContentScale.Crop,
                 onSuccess = {
                     ischargue = true
@@ -57,7 +62,7 @@ fun splashScreen(splashvm: SplashScreenViewModel , navController: NavController)
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    lottieanimationforscreen()
+                    lottieanimationforscreen(navController)
                     LaunchedEffect(Unit) {
                         visible = true
                         delay(4000)
@@ -68,10 +73,10 @@ fun splashScreen(splashvm: SplashScreenViewModel , navController: NavController)
                         enter = fadeIn(),
                         exit = fadeOut(),
                     ) {
-                        textosplash(modifier = Modifier.weight(.1f))
+                        textosplash(modifier = Modifier.weight(.1f), navController)
                     }
-
                 }
+
 
             }
         }
