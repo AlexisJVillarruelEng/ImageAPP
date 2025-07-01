@@ -28,7 +28,7 @@ import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
 fun carouselImage(listaimagenes: List<String>) {
     Box(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .background(MaterialTheme.colorScheme.surface),
     ) {
         Column {

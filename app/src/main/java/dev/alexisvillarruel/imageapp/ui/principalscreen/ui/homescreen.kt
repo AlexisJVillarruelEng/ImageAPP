@@ -3,6 +3,7 @@ package dev.alexisvillarruel.imageapp.ui.principalscreen.ui
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -15,6 +16,7 @@ import androidx.navigation.NavHostController
 import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
 import androidx.compose.runtime.getValue
 import dev.alexisvillarruel.imageapp.ui.principalscreen.ui.components.carouselImage
+import dev.alexisvillarruel.imageapp.ui.principalscreen.ui.components.filters
 
 
 @Composable
@@ -37,9 +39,11 @@ fun HomeScreen(dashboardviewmodel: homeScreenViewModel,navController: NavHostCon
 @Composable
 fun HomeScreenContent(carrouselimages: List<String>) {
     Box (modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface),){
+        Column(modifier = Modifier.fillMaxSize()) {
 
-        carouselImage(carrouselimages)
-
+            carouselImage(carrouselimages)
+            filters()
+        }
     }
 
 }
