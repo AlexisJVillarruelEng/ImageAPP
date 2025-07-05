@@ -1,6 +1,7 @@
 package dev.alexisvillarruel.imageapp.ui.principalscreen.data.network
 
 import android.util.Log
+import dev.alexisvillarruel.imageapp.ui.principalscreen.data.network.response.Item
 import dev.alexisvillarruel.imageapp.ui.principalscreen.data.network.response.urlsUnsp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -31,4 +32,20 @@ class dashboardService @Inject constructor(
         }
     }
 
+
+        suspend fun searchPhotos(query: String): List<Item> {
+            return withContext(Dispatchers.IO) {
+                try {
+                    val response = dashboardClient.searchPhotos(query)
+                    if (response.isSuccessful) {
+                        response.body()?.results ?: emptyList()
+                    } else {
+                        throw Exception("Error: ${response.code()} ${response.message()}")
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    throw Exception("Error de red: ${e.message}")
+                }
+            }
+        }
 }
