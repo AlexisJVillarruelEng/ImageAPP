@@ -40,13 +40,13 @@ fun carouselImage(listaimagenes: List<String>) {
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
             carrouselimagecontent(listaimagenes)
-            Text(
-                "This is a carousel of images", modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
-            )
+//            Text(
+//                "This is a carousel of images", modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(16.dp),
+//                style = MaterialTheme.typography.bodyLarge,
+//                color = MaterialTheme.colorScheme.onPrimaryContainer
+//            )
         }
     }
 }
