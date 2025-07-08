@@ -8,3 +8,21 @@ data class urlsUnsp(
 data class Urlsplashphotos2(
     val regular: String,
 )
+
+//data class de rsponse de ilters
+data class searchResponse(
+    val results: List<Item>,
+)
+
+data class Item(
+    val urls: Urls,
+    val links: Links
+)
+
+data class Urls(
+    val regular: String
+)
+
+data class Links(
+    val download: String
+)

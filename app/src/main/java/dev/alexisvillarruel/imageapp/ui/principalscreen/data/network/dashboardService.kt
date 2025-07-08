@@ -1,6 +1,8 @@
 package dev.alexisvillarruel.imageapp.ui.principalscreen.data.network
 
 import android.util.Log
+import dev.alexisvillarruel.imageapp.ui.principalscreen.data.network.response.Item
+import dev.alexisvillarruel.imageapp.ui.principalscreen.data.network.response.searchResponse
 import dev.alexisvillarruel.imageapp.ui.principalscreen.data.network.response.urlsUnsp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -31,4 +33,21 @@ class dashboardService @Inject constructor(
         }
     }
 
+
+        suspend fun searchPhotos(query: String): Result<searchResponse> {
+            val response = dashboardClient.searchPhotos(query)
+            if (response.isSuccessful) {
+                val body = response.body()
+                Log.d("Response", body.toString())
+                return if (body != null) {
+                    Result.success(body)
+                } else {
+                    Result.failure(Exception("Response body is null"))
+                }
+            } else {
+                return Result.failure(Exception("Error: ${response.code()} ${response.message()}"))
+            }
+
+
+        }
 }

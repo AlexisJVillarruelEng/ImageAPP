@@ -1,5 +1,6 @@
 package dev.alexisvillarruel.imageapp.ui.principalscreen.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,30 +34,32 @@ import androidx.compose.ui.unit.dp
 import dev.alexisvillarruel.imageapp.ui.theme.AppTheme
 
 @Composable
-fun filters() {
+fun filters(onSearch: (String) -> Unit) {
     var value by rememberSaveable { mutableStateOf("") }
     Surface(
-        modifier = Modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.background
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.background) // asegúrate del fondo
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             horizontalArrangement = Arrangement.Center,
         ) {
             OutlinedTextField(
-                modifier = Modifier.height(50.dp).width(400.dp).padding(16.dp),
+                modifier = Modifier.fillMaxWidth().height(56.dp).width(400.dp),
                 value = value,
-                textStyle = MaterialTheme.typography.bodyMedium.copy(
-                    MaterialTheme.colorScheme.onPrimaryContainer,
+                textStyle = MaterialTheme.typography.bodyMedium.copy(color=
+                    MaterialTheme.colorScheme.onSurface,
                 ),
                 onValueChange = {
                     if (it.length <= 50) value = it
+                    onSearch(it)
                 },
                 placeholder = {
                     Text(
                         text = "Search",
                         style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        color = MaterialTheme.colorScheme.onSurface,
                     )
                 },
                 leadingIcon = {
@@ -67,10 +70,15 @@ fun filters() {
                     )
                 },
                 colors = TextFieldDefaults.colors(
+                    focusedTextColor = MaterialTheme.colorScheme.onSurface,      // ✅ Color cuando enfocado
+
+                    unfocusedTextColor = MaterialTheme.colorScheme.onSurface,    // ✅ Color cuando no está enfocado
+                    disabledTextColor = MaterialTheme.colorScheme.onSurfaceVariant, // Por si acaso
                     focusedContainerColor = MaterialTheme.colorScheme.surface,
                     unfocusedContainerColor = MaterialTheme.colorScheme.surface,
                     focusedIndicatorColor = MaterialTheme.colorScheme.primary,
-                    unfocusedIndicatorColor = MaterialTheme.colorScheme.primary
+                    unfocusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                    cursorColor = MaterialTheme.colorScheme.primary              // ✅ Color del cursor
                 ),
                 singleLine = true,
 
@@ -79,10 +87,10 @@ fun filters() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 @Composable
-fun filtersPreview() {
+fun FiltersPreview() {
     AppTheme {
-        filters()
+        filters {}
     }
 }
